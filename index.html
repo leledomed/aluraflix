@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cuidados com o meu cabelo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: gold;
+            padding: 1em;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: blue
+            ;
+        }
+        .content {
+            margin: 1em auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: auto;
+            max-width: 560px; /* Ajusta para a largura original dos vídeos */
+        }
+        .carousel {
+            position: relative;
+            max-width: 560px; /* Ajusta para a largura original dos vídeos */
+            margin: 2em auto;
+            overflow: hidden; /* Adiciona para esconder o excesso de conteúdo */
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.5em;
+            font-size: 1.5em;
+            z-index: 1;
+        }
+        .carousel-button.left {
+            left: 0;
+        }
+        .carousel-button.right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Filme Coraline
+    </header>
+
+    <div class="content">coraline
+    
+        <h1>Coraline</h1>
+        <p>#coraline #desenho</p>
+    </div>
+
+    <div class="content">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/joV5iuVwIXQ?si=58dI66fozeBIKvf7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel">
+        <button class="carousel-button left" onclick="moveCarousel(-1)">&#10094;</button>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/y00yxCAjkao?si=dhVP4UFWP1EEHi_R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="carousel-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NGZ1RPmC8QU?si=QeSlmZhFxhsyZkQS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- Adicione mais vídeos aqui -->
+        </div>
+        <button class="carousel-button right" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(step) {
+            const items = document.querySelectorAll('.carousel-item');
+            const totalItems = items.length;
+            currentIndex = (currentIndex + step + totalItems) % totalItems;
+            const offset = -currentIndex * 100;
+            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+
+</html>
